@@ -16,6 +16,7 @@ state = input('What is your state ? ')
 zip = input('What is your zip code? ')
 country = input('What do you want as the country? ')
 prefix = input('What do you want as the prefix? ')
+catchall = input('What is your catchall? [f.e test.com] ')
 
 with open(f'{name}.csv', 'a', newline='') as file:
     writer = csv.writer(file)
@@ -30,7 +31,7 @@ for i in range(loop):
     abc = random_string = "".join(random.choice(string.ascii_uppercase) for i in range(length_of_string))
     with open(f'{name}.csv', 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([f'{first}{last}{numbers}@gmail.com', f'{first}', f'{last}', f'{house_number}', f'{abc} {adress}', f'', f'{city}', f'{zip}', f'{state}', f'{country}', f'{password}', f'{prefix}', f'', f''])
+        writer.writerow([f'{first}{last}{numbers}@{catchall}', f'{first}', f'{last}', f'{house_number}', f'{abc} {adress}', f'', f'{city}', f'{zip}', f'{state}', f'{country}', f'{password}', f'{prefix}', f'', f''])
 
 print(f'Succesfully generated file, check {file}.csv')
 time.sleep(100) 
